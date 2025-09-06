@@ -1,0 +1,6 @@
+@ODMapi_HostAddress = http://localhost:5074
+
+GET {{ODMapi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
