@@ -13,6 +13,10 @@ builder.WebHost.ConfigureKestrel(options =>
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddScoped<DatabaseService>();
 builder.Services.AddScoped<ClientRepository>();
+builder.Services.AddScoped<MagasinRepository>();
+builder.Services.AddScoped<SiteRepository>();
+builder.Services.AddScoped<ExportateurRepository>();
+builder.Services.AddScoped<LotRepository>();
 
 
 
