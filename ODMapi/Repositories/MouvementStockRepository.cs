@@ -85,7 +85,6 @@ namespace odm_api.Repositories
                     cmd.Parameters.AddWithValue("@poidsnetaccepte", mouvement.PoidsNetAccepte);
                     cmd.Parameters.AddWithValue("@CreationUser", (object)mouvement.CreationUtilisateur ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@EmplacementID", (object)mouvement.EmplacementID ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@sactypeId", (object)mouvement.SacTypeID ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@commentaire", (object)mouvement.Commentaire ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@SiteID", mouvement.SiteID);
                     cmd.Parameters.AddWithValue("@produitID", (object)mouvement.ProduitID ?? DBNull.Value);
