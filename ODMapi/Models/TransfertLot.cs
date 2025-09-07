@@ -77,10 +77,10 @@ namespace odm_api.Models.DTOs
         public int? MagReceptionTheoID { get; set; }
         
         // Propriété de création
-        public string CreationUtilisateur { get; set; }
+        public string? CreationUtilisateur { get; set; }
 
         // Propriétés de mise à jour
-        public string ModificationUtilisateur { get; set; }
+        public string? ModificationUtilisateur { get; set; }
         public byte[]? RowVersionKey { get; set; }
     }
 }

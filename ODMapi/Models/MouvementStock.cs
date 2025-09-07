@@ -82,10 +82,10 @@ namespace odm_api.Models.DTOs
         public int? CertificationID { get; set; }
         
         // Propriété de création (utilisée pour POST)
-        public string CreationUtilisateur { get; set; }
+        public string? CreationUtilisateur { get; set; }
 
         // Propriétés de mise à jour (utilisées pour PUT)
-        public string ModificationUtilisateur { get; set; }
+        public string? ModificationUtilisateur { get; set; }
         public byte[]? RowVersionKey { get; set; }
     }
 }
