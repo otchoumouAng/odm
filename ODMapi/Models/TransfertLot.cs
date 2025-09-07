@@ -84,4 +84,3 @@ namespace odm_api.Models.DTOs
         public byte[]? RowVersionKey { get; set; }
     }
 }
-
