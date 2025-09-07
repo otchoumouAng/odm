@@ -67,22 +67,26 @@ namespace odm_api.Repositories
                     cmd.Parameters.AddWithValue("@siteID", transfert.SiteID);
                     cmd.Parameters.AddWithValue("@LotID", transfert.LotID);
                     cmd.Parameters.AddWithValue("@NumBordereauExpedition", (object)transfert.NumBordereauExpedition ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@magasinExpeditionID", (object)transfert.MagasinExpeditionID ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@nombreSacs", (object)transfert.NombreSacsExpedition ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@NombrePalette", (object)transfert.NombrePaletteExpedition ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@TareSac", (object)transfert.TareSacsExpedition ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@TarePalette", (object)transfert.TarePaletteExpedition ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@poidsBrut", (object)transfert.PoidsBrutExpedition ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@poidsNet", (object)transfert.PoidsNetExpedition ?? DBNull.Value);
+
+                    // Corrected parameters with explicit data types
+                    cmd.Parameters.Add("@magasinExpeditionID", SqlDbType.Int).Value = (object)transfert.MagasinExpeditionID ?? DBNull.Value;
+                    cmd.Parameters.Add("@nombreSacs", SqlDbType.Int).Value = (object)transfert.NombreSacsExpedition ?? DBNull.Value;
+                    cmd.Parameters.Add("@NombrePalette", SqlDbType.Int).Value = (object)transfert.NombrePaletteExpedition ?? DBNull.Value;
+
+                    cmd.Parameters.Add("@TareSac", SqlDbType.Decimal).Value = (object)transfert.TareSacsExpedition ?? DBNull.Value;
+                    cmd.Parameters.Add("@TarePalette", SqlDbType.Decimal).Value = (object)transfert.TarePaletteExpedition ?? DBNull.Value;
+                    cmd.Parameters.Add("@poidsBrut", SqlDbType.Decimal).Value = (object)transfert.PoidsBrutExpedition ?? DBNull.Value;
+                    cmd.Parameters.Add("@poidsNet", SqlDbType.Decimal).Value = (object)transfert.PoidsNetExpedition ?? DBNull.Value;
+                    
                     cmd.Parameters.AddWithValue("@ImmTracteur", (object)transfert.ImmTracteurExpedition ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@ImmRemorque", (object)transfert.ImmRemorqueExpedition ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@dateExpedition", (object)transfert.DateExpedition ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Commentaire", (object)transfert.CommentaireExpedition ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@statut", (object)transfert.Statut ?? "NA");
-                    cmd.Parameters.AddWithValue("@magasinTheoReceptionID", (object)transfert.MagReceptionTheoID ?? DBNull.Value);
+                    cmd.Parameters.Add("@magasinTheoReceptionID", SqlDbType.Int).Value = (object)transfert.MagReceptionTheoID ?? DBNull.Value;
                     cmd.Parameters.AddWithValue("@CreationUser", (object)transfert.CreationUtilisateur ?? DBNull.Value);
 
-                    // Output parameters
+                    // Output parameters remain the same
                     var idParam = cmd.Parameters.Add(new SqlParameter("@ID", SqlDbType.UniqueIdentifier) { Direction = ParameterDirection.Output });
                     var numeroExpeditionParam = cmd.Parameters.Add(new SqlParameter("@numeroExpedition", SqlDbType.VarChar, 10) { Direction = ParameterDirection.Output });
                     var rvParam = cmd.Parameters.Add(new SqlParameter("@RowVersion", SqlDbType.Timestamp) { Direction = ParameterDirection.Output });
@@ -91,7 +95,6 @@ namespace odm_api.Repositories
 
                     cmd.ExecuteNonQuery();
 
-                    // Get results
                     int returnValue = (int)retParam.Value;
                     string errorMessage = errParam.Value?.ToString();
 
@@ -104,7 +107,6 @@ namespace odm_api.Repositories
                         throw new Exception($"Unexpected return value: {returnValue}");
                     }
 
-                    // Set transfert properties
                     transfert.ID = idParam.Value is DBNull ? Guid.Empty : (Guid)idParam.Value;
                     transfert.NumeroExpedition = numeroExpeditionParam.Value?.ToString();
                     transfert.RowVersionKey = rvParam.Value is DBNull ? null : (byte[])rvParam.Value;
