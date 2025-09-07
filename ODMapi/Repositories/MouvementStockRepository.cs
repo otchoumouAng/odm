@@ -27,7 +27,7 @@ namespace odm_api.Repositories
                 ExportateurId = reader["ExportateurId"] != DBNull.Value ? (int?)reader["ExportateurId"] : null,
                 MouvementTypeId = (int)reader["MouvementTypeId"],
                 CertificationId = reader["CertificationId"] != DBNull.Value ? (int?)reader["CertificationId"] : null,
-                EmballageTypeId = reader["EmballageTypeId"] != DBNull.Value ? (int?)reader["EmballageTypeId"] : null,
+                EmballageTypeId = reader["SacTypeID"] != DBNull.Value ? (int?)reader["SacTypeID"] : null,
                 ObjetEnStockId = reader["ObjetEnStockId"] != DBNull.Value ? (Guid?)reader["ObjetEnStockId"] : null,
                 ObjetEnStockType = reader["ObjetEnStockType"] != DBNull.Value ? (int?)reader["ObjetEnStockType"] : null,
                 EmplacementId = reader["EmplacementId"] != DBNull.Value ? (int?)reader["EmplacementId"] : null,
