@@ -141,7 +141,7 @@ namespace odm_api.Repositories
                     cmd.Parameters.AddWithValue("@Commentaire", (object)transfert.CommentaireExpedition ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@statut", (object)transfert.Statut ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@magasinTheoReceptionID", (object)transfert.MagReceptionTheoID ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@CreationUser", (object)transfert.CreationUtilisateur ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@ModificationUser", (object)transfert.ModificationUtilisateur ?? DBNull.Value);
 
                     // RowVersion param: InputOutput
                     var rvParam = cmd.Parameters.Add("@RowVersion", SqlDbType.Timestamp);

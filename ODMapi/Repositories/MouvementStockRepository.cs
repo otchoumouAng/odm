@@ -146,7 +146,6 @@ namespace odm_api.Repositories
                     cmd.Parameters.AddWithValue("@commentaire", (object)mouvement.Commentaire ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@ModificationUser", (object)mouvement.ModificationUtilisateur ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@EmplacementID", (object)mouvement.EmplacementID ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@sactypeId", (object)mouvement.SacTypeID ?? DBNull.Value);
                     
                     // RowVersion param: InputOutput
                     var rvParam = cmd.Parameters.Add("@RowVersion", SqlDbType.Timestamp);
