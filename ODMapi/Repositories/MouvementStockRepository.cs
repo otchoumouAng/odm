@@ -87,7 +87,6 @@ namespace odm_api.Repositories
                     cmd.Parameters.AddWithValue("@EmplacementID", (object)mouvement.EmplacementID ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@commentaire", (object)mouvement.Commentaire ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@SiteID", mouvement.SiteID);
-                    cmd.Parameters.AddWithValue("@produitID", (object)mouvement.ProduitID ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@certificationId", (object)mouvement.CertificationID ?? DBNull.Value);
 
                     // Output parameters
