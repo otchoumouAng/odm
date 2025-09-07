@@ -56,7 +56,7 @@ namespace odm_api.Repositories
                 ModificationUtilisateur = reader["ModificationUtilisateur"]?.ToString(),
                 ModificationDate = reader["ModificationDate"] != DBNull.Value ? (DateTime?)reader["ModificationDate"] : null,
                 RowVersionKey = reader["RowVersionKey"] as byte[],
-                MagReceptionTheo = reader["MagReceptionTheo"] != DBNull.Value ? (int?)reader["MagReceptionTheo"] : null,
+                MagReceptionTheo = reader["MagReceptionTheoID"] != DBNull.Value ? (int?)reader["MagReceptionTheoID"] : null,
                 SiteNom = reader["SiteNom"]?.ToString(),
                 MagasinExpeditionNom = reader["MagasinExpeditionNom"]?.ToString(),
                 MagasinReceptionNom = reader["MagasinReceptionNom"]?.ToString(),
