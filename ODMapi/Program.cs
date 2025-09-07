@@ -17,6 +17,8 @@ builder.Services.AddScoped<MagasinRepository>();
 builder.Services.AddScoped<SiteRepository>();
 builder.Services.AddScoped<ExportateurRepository>();
 builder.Services.AddScoped<LotRepository>();
+builder.Services.AddScoped<MouvementStockRepository>();
+builder.Services.AddScoped<TransfertLotRepository>();
 
 
 
