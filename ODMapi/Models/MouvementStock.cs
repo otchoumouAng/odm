@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace odm_api.Models
 {
@@ -45,5 +46,46 @@ namespace odm_api.Models
         public DateTime? ModificationDate { get; set; }
         public byte[]? RowVersionKey { get; set; }
         public int? ProduitID { get; set; }
+    }
+}
+
+
+
+
+namespace odm_api.Models.DTOs
+{
+    public class MouvementStockDto
+    {
+        // Propriétés de base communes aux deux opérations
+        public int MagasinID { get; set; }
+        public string CampagneID { get; set; }
+        public int? ExportateurID { get; set; }
+        public int MouvementTypeID { get; set; }
+        public Guid? ObjetEnStockID { get; set; }
+        public int? ObjetEnStockType { get; set; }
+        public int? EmplacementID { get; set; }
+        public int SiteID { get; set; }
+        public string Reference1 { get; set; }
+        public string Reference2 { get; set; }
+        public DateTime DateMouvement { get; set; }
+        public short Sens { get; set; }
+        public int Quantite { get; set; }
+        public decimal PoidsBrut { get; set; }
+        public decimal TareSacs { get; set; }
+        public decimal TarePalettes { get; set; }
+        public decimal PoidsNetLivre { get; set; }
+        public decimal RetentionPoids { get; set; }
+        public decimal PoidsNetAccepte { get; set; }
+        public string Statut { get; set; }
+        public string Commentaire { get; set; }
+        public int? ProduitID { get; set; }
+        public int? CertificationID { get; set; }
+        
+        // Propriété de création (utilisée pour POST)
+        public string CreationUtilisateur { get; set; }
+
+        // Propriétés de mise à jour (utilisées pour PUT)
+        public string ModificationUtilisateur { get; set; }
+        public byte[]? RowVersionKey { get; set; }
     }
 }

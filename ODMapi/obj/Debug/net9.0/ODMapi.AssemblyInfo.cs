@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ODMapi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4deef71d5f8f1b34692985f91d13eef931288e9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+efa467745f30cd2b98db8c38276565cb7d982b05")]
 [assembly: System.Reflection.AssemblyProductAttribute("ODMapi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ODMapi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
